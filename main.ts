@@ -1,4 +1,4 @@
-import { app, BrowserWindow, screen } from 'electron';
+import {app, BrowserWindow, screen} from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
@@ -17,6 +17,7 @@ function createWindow(): BrowserWindow {
     y: 0,
     width: size.width,
     height: size.height,
+    // frame: false,
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: (serve) ? true : false,
