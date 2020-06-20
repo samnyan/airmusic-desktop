@@ -1,20 +1,17 @@
 {
-  "name": "angular-electron",
-  "version": "7.1.0",
-  "description": "Angular 9 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "name": "airmusic-desktop",
+  "version": "0.0.1",
+  "description": "An Airsonic client build with Angular and Electron",
+  "homepage": "https://github.com/samnyan/airmusic-desktop",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "sam_nya",
+    "email": "privateamusement@protonmail.com"
   },
   "keywords": [
+    "airsonic",
     "angular",
-    "angular 9",
     "electron",
-    "typescript",
-    "eslint",
-    "spectron",
-    "sass"
+    "typescript"
   ],
   "main": "main.js",
   "private": true,
