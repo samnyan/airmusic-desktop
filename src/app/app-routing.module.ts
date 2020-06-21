@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from './shared/components';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { HomeRoutingModule } from './home/home-routing.module';
+import {HomeRoutingModule} from './home/home-routing.module';
+import {LoginComponent} from './pages/auth/login/login.component';
+import {PageNotFoundComponent} from './shared/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -11,9 +12,14 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }
+
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ElectronService} from './electron/electron.service';
+import {ElectronService} from '../electron/electron.service';
 import * as path from 'path';
 import * as fs from 'fs';
 
@@ -9,7 +9,7 @@ import * as fs from 'fs';
 export class UserConfigService {
 
   configPath: string;
-  public config;
+  config;
   app;
   fs: typeof fs;
 
@@ -27,7 +27,7 @@ export class UserConfigService {
 
   set(key, val) {
     this.config[key] = val;
-    this.fs.writeFileSync(this.configPath, this.config);
+    this.fs.writeFileSync(this.configPath, JSON.stringify(this.config));
   }
 
   parseConfig() {
@@ -42,6 +42,7 @@ export class UserConfigService {
 }
 
 const DEFAULT_CONFIG = {
+  host: 'http://localhost:8080',
   username: null,
   salt: null,
   token: null,

@@ -1,0 +1,67 @@
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {UserConfigService} from '../config/user-config.service';
+import {Observable, of, throwError} from 'rxjs';
+import {AuthenticationService, mergeOption} from '../auth/authentication.service';
+import {switchMap} from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+
+  constructor(
+    private http: HttpClient,
+    private config: UserConfigService,
+    private auth: AuthenticationService
+  ) {
+  }
+
+  get(url: string, options?: HttpOptions): Observable<SubsonicResponse> {
+    options = mergeOption(this.auth.getUser(), options);
+    return this.http.get<ResponseRoot>(this.getHost() + '/rest/' + url, options).pipe(
+      switchMap(data => {
+        // Check if the response body contains error field, since the server only send 200 status code.
+        if (data['subsonic-response'].error) {
+          return throwError(data['subsonic-response']);
+        } else {
+          return of(data['subsonic-response']);
+        }
+      })
+    );
+  }
+
+  getRaw = this.http.get;
+
+  getHost(): string {
+    const host = this.config.get('host');
+    return host ? host : 'http://localhost:8080';
+  }
+
+}
+
+export interface SubsonicError {
+  code: number;
+  message: string;
+}
+
+export interface SubsonicResponse {
+  status: string;
+  version: string;
+  error?: SubsonicError;
+}
+
+export interface ResponseRoot {
+  'subsonic-response': SubsonicResponse;
+}
+
+export interface HttpOptions {
+  headers?: HttpHeaders | {
+    [header: string]: string | string[];
+  };
+  observe?: 'body';
+  params?: HttpParams;
+  reportProgress?: boolean;
+  responseType?: 'json';
+  withCredentials?: boolean;
+}
