@@ -3,14 +3,16 @@ import {CommonModule} from '@angular/common';
 
 import {TranslateModule} from '@ngx-translate/core';
 
-import {WebviewDirective} from './directives/';
 import {FormsModule} from '@angular/forms';
-import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
+import {SideBarComponent} from './components/side-bar/side-bar.component';
+import {RouterModule} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
-  declarations: [PageNotFoundComponent, WebviewDirective],
-  imports: [CommonModule, TranslateModule, FormsModule],
-  exports: [TranslateModule, WebviewDirective, FormsModule]
+  imports: [CommonModule, TranslateModule, FormsModule, RouterModule, MatButtonModule, MatMenuModule],
+  exports: [TranslateModule, FormsModule, SideBarComponent],
+  declarations: [SideBarComponent]
 })
 export class SharedModule {
 }

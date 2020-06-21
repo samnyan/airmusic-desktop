@@ -1,0 +1,33 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <defs>
+    <filter height="200%" width="200%" y="-50%" x="-50%" id="svg_1_blur">
+      <feGaussianBlur stdDeviation="1.2" in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g>
+    <title>background</title>
+    <rect fill="#4c4c4c" id="canvas_background" height="514" width="514" y="-1" x="-1"/>
+  </g>
+  <g>
+    <title>Layer 1</title>
+    <text filter="url(#svg_1_blur)" stroke="#000"
+          transform="matrix(2.770256996154785,0,0,2.770256996154785,-82.31695032119751,-710.7581839561462) "
+          xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_1"
+          y="409.060906" x="49.748796" stroke-width="0" fill="#000000">No Album Art</text>
+    <text stroke="#000"
+          transform="matrix(2.770256996154785,0,0,2.770256996154785,-82.31695032119751,-710.7581839561462) "
+          xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_2"
+          y="407.977974" x="49.387819" stroke-width="0" fill="#000000">No Album Art</text>
+    <line id="svg_3" y2="78.5" x2="389.5" y1="119.5" x1="165.5"
+          stroke-width="20.5" stroke="#000" fill="none"/>
+    <line id="svg_5" y2="264.570607" x2="380.5" y1="87.5"
+          x1="380.5" fill-opacity="null" stroke-opacity="null" stroke-width="20.5" stroke="#000" fill="none"/>
+    <line id="svg_7" y2="289.570607" x2="174.5" y1="112.5"
+          x1="174.5" fill-opacity="null" stroke-opacity="null" stroke-width="20.5" stroke="#000" fill="none"/>
+    <ellipse ry="20.5" rx="20.5" id="svg_8" cy="292" cx="144" fill-opacity="null" stroke-opacity="null"
+             stroke-width="40.5" stroke="#000" fill="none"/>
+    <ellipse ry="20.5" rx="20.5" id="svg_10" cy="264" cx="351" fill-opacity="null" stroke-opacity="null"
+             stroke-width="40.5" stroke="#000" fill="none"/>
+  </g>
+</svg>

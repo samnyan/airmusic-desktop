@@ -1,0 +1,12 @@
+:host {
+
+  .albums {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .album-card {
+    max-width: 128px;
+    margin: 10px;
+  }
+}

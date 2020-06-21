@@ -4,6 +4,8 @@ import {UserConfigService} from '../config/user-config.service';
 import {Observable, of, throwError} from 'rxjs';
 import {AuthenticationService, mergeOption} from '../auth/authentication.service';
 import {switchMap} from 'rxjs/operators';
+import {ResponseRoot, SubsonicResponse} from '../../../model/SubsonicResponse';
+import {MessageService} from '../message/message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,8 @@ export class ApiService {
   constructor(
     private http: HttpClient,
     private config: UserConfigService,
-    private auth: AuthenticationService
+    private auth: AuthenticationService,
+    private message: MessageService
   ) {
   }
 
@@ -23,6 +26,7 @@ export class ApiService {
       switchMap(data => {
         // Check if the response body contains error field, since the server only send 200 status code.
         if (data['subsonic-response'].error) {
+          this.message.notice('Request ' + url + ' Error: ' + data['subsonic-response'].error.message);
           return throwError(data['subsonic-response']);
         } else {
           return of(data['subsonic-response']);
@@ -38,21 +42,6 @@ export class ApiService {
     return host ? host : 'http://localhost:8080';
   }
 
-}
-
-export interface SubsonicError {
-  code: number;
-  message: string;
-}
-
-export interface SubsonicResponse {
-  status: string;
-  version: string;
-  error?: SubsonicError;
-}
-
-export interface ResponseRoot {
-  'subsonic-response': SubsonicResponse;
 }
 
 export interface HttpOptions {

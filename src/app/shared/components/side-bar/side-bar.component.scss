@@ -1,0 +1,42 @@
+@import "src/style/common";
+
+$player-height: 2em;
+$main-view-width: 100%;
+$main-body-height: 100vh;
+$sidebar-width: 260px;
+
+.sidebar {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  //background: $sidebar-background-color;
+  padding: 1em 0 0 0;
+  height: 100vh;
+  overflow: hidden;
+  width: $sidebar-width;
+
+  .user-container {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    width: 100%;
+    height: 64px;
+    @include flex-center;
+  }
+
+  nav {
+    height: calc(100% - 280px);
+    overflow-y: auto;
+  }
+
+  .padding-div {
+    padding-left: 1em;
+  }
+
+  .icon {
+    align-self: center;
+    justify-self: center;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+}

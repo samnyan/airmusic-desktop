@@ -1,0 +1,26 @@
+<div class="sidebar">
+  <div class="user-container">
+    <ng-container *ngIf="user">
+      <div>
+        <button mat-button [matMenuTriggerFor]="userMenu">Welcome, {{user.username}}</button>
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!user">
+      <button mat-button routerLink="/login">{{ 'PAGES.HOME.GO_TO_LOGIN' | translate }}</button>
+    </ng-container>
+  </div>
+  <nav class="scrollWrapper">
+    <ul>
+      <li routerLink="/home">Home</li>
+      <li>Now playing</li>
+    </ul>
+  </nav>
+  <div class="player">
+
+  </div>
+</div>
+
+

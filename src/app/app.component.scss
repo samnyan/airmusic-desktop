@@ -1,3 +1,17 @@
 :host {
-  
+  .home {
+    display: flex;
+    justify-content: left;
+    width: 100vw;
+  }
+
+  .main-view {
+    display: flex;
+    width: calc(100vw - 260px);
+    bottom: 0;
+    overflow: auto;
+    background: transparent;
+    height: 100vh;
+    position: relative;
+  }
 }

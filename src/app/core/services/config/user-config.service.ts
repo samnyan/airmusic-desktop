@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ElectronService} from '../electron/electron.service';
+import {ElectronService} from '..';
 import * as path from 'path';
 import * as fs from 'fs';
 

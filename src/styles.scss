@@ -1,3 +1,5 @@
+@import "style/main_theme";
+@import "style/common";
 /* You can add global styles to this file, and also import other style files */
 html, body {
   margin: 0;
@@ -8,8 +10,8 @@ html, body {
 }
 
 body {
-  overflow-y: scroll;
-  position: static;
-  background-color: #1c1719;
-  color: #fff;
+  overflow: hidden;
+  height: 100vh;
+  background-color: $background-color;
+  color: $main-font-color;
 }

@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="title">
+    Airsonic
+  </h1>
+
+  <div>
+    <h2>Top Album</h2>
+    <div class="albums" *ngIf="albumList">
+      <mat-card class="album-card" *ngFor="let item of albumList">
+        <img mat-card-image src="{{item.coverArt | idToCoverArt}}" alt="{{item.name}}">
+        <mat-card-content>
+          <h3>{{item.name}}</h3>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
