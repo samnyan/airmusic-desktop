@@ -13,6 +13,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'music',
+    loadChildren: () => import('./pages/music/music.module').then(mod => mod.MusicModule)
+
   }
 ];
 

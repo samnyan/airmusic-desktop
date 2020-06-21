@@ -1,4 +1,4 @@
-import {AlbumID3} from './AlbumID3';
+import {AlbumID3, AlbumWithSongsID3} from './AlbumID3';
 
 export interface SubsonicError {
   code: number;
@@ -14,6 +14,7 @@ export interface SubsonicResponse {
   version: string;
   error?: SubsonicError;
   albumList2?: AlbumList2;
+  album?: AlbumWithSongsID3;
 }
 
 export interface ResponseRoot {

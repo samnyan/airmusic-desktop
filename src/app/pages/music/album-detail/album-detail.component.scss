@@ -1,0 +1,24 @@
+@import "src/style/common";
+
+:host {
+  width: 100%
+}
+
+:host {
+  .album-info-container {
+    width: 100%;
+    display: flex;
+  }
+
+  .album-art-card {
+    width: 200px;
+    height: 200px;
+    margin: 56px;
+    background-size: cover;
+    box-shadow: 0 0 20px 1px rgba(42, 159, 226, 0.38);
+  }
+
+  .track-list {
+    width: 100%;
+  }
+}

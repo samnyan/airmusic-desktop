@@ -1,3 +1,5 @@
+import {Child} from './Child';
+
 export interface AlbumID3 {
   id: string;
   name: string;
@@ -8,4 +10,8 @@ export interface AlbumID3 {
   duration: number;
   created: Date;
   genre: string;
+}
+
+export interface AlbumWithSongsID3 extends AlbumID3 {
+  song: Child[];
 }

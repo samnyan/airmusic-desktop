@@ -1,0 +1,23 @@
+<div *ngIf="album">
+  <div class="album-info-container">
+    <div class="album-art-card" [ngStyle]="{'background-image': 'url(' + (album.coverArt | idToCoverArt) + ')'}"></div>
+    <div class="album-info">
+      <h2>
+        {{album.name}}
+      </h2>
+      <h3>
+        {{album.artist}}
+      </h3>
+    </div>
+  </div>
+  <div class="track-list">
+    <mat-card-title>
+      Track List
+    </mat-card-title>
+    <mat-selection-list #track>
+      <mat-list-option *ngFor="let item of album.song">
+        {{item.title}} {{item.duration * 1000 | date:'mm:ss'}}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+</div>
