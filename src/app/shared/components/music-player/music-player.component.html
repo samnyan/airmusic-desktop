@@ -1,0 +1,29 @@
+<div class="player">
+  <div class="music-info">
+    <div class="album-art">
+      <img src="{{currentMusic | childToCoverArt}}" alt="Album Art">
+    </div>
+    <div class="track-info">
+      <div class="title">{{currentMusic ? currentMusic.title : ''}}</div>
+      <div class="album">{{currentMusic ? currentMusic.album : ''}}</div>
+      <div class="artist">{{currentMusic ? currentMusic.artist : ''}}</div>
+    </div>
+  </div>
+  <div class="controls">
+    <button mat-button (click)="togglePlayPause()">
+      <mat-icon *ngIf="!isPlaying">play_arrow</mat-icon>
+      <mat-icon *ngIf="isPlaying">pause</mat-icon>
+    </button>
+  </div>
+  <div class="progress-container">
+    <mat-slider class="progress-slider" (change)="currTimePosChanged($event)"
+                max="{{duration}}"
+                style="width: 100%"
+                value="{{currentTime}}"></mat-slider>
+    <div class="timestamp">
+      <div class="current-text">{{currentTime * 1000 | date:'mm:ss'}}</div>
+      <div class="duration-text">{{duration * 1000 | date:'mm:ss'}}</div>
+    </div>
+  </div>
+  <audio #musicPlayer></audio>
+</div>

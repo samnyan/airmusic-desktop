@@ -4,6 +4,11 @@
 
 An Airsonic client build with Angular and Electron.
 
+Still working in progress.
+
+## Preview
+
+![Main window](https://i.imgur.com/rO9CRUV.png)
 
 
 Made with this template: https://github.com/maximegris/angular-electron

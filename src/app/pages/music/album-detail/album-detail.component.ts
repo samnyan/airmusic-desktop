@@ -3,6 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {ApiService} from '../../../core/services/api/api.service';
 import {AlbumWithSongsID3} from '../../../model/AlbumID3';
 import {HttpParams} from '@angular/common/http';
+import {MatSelectionListChange} from '@angular/material/list';
+import {MusicPlayerService} from '../../../core/services/music-player/music-player.service';
 
 @Component({
   selector: 'app-album-detail',
@@ -15,7 +17,8 @@ export class AlbumDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    private music: MusicPlayerService
   ) {
   }
 
@@ -33,4 +36,7 @@ export class AlbumDetailComponent implements OnInit {
     )
   }
 
+  trackSelect(event: MatSelectionListChange) {
+    this.music.replaceAndPlay(event.option.value);
+  }
 }

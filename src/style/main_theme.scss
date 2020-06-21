@@ -11,7 +11,7 @@ $background-color: #1c1719;
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $primary: mat-palette($mat-pink);
-$accent: mat-palette($mat-pink, A200, A100, A400);
+$accent: mat-palette($mat-pink, 100, 50);
 $dark-accent: mat-palette($mat-pink, 900, 800);
 
 $main-font-color: #fff;

@@ -14,8 +14,8 @@
     <mat-card-title>
       Track List
     </mat-card-title>
-    <mat-selection-list #track>
-      <mat-list-option *ngFor="let item of album.song">
+    <mat-selection-list [multiple]="false" (selectionChange)="trackSelect($event)">
+      <mat-list-option *ngFor="let item of album.song" [value]="item">
         {{item.title}} {{item.duration * 1000 | date:'mm:ss'}}
       </mat-list-option>
     </mat-selection-list>
