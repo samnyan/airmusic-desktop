@@ -1,6 +1,4 @@
 import {Injectable} from '@angular/core';
-import {ElectronService} from '..';
-import * as path from 'path';
 import * as fs from 'fs';
 
 @Injectable({
@@ -8,15 +6,11 @@ import * as fs from 'fs';
 })
 export class UserConfigService {
 
-  configPath: string;
   config;
   app;
   fs: typeof fs;
 
-  constructor(e: ElectronService) {
-    this.fs = e.fs;
-    this.configPath = path.join(e.remote.app.getPath('userData'), 'config.json')
-    console.log('Config Path: ', this.configPath);
+  constructor() {
     this.config = this.parseConfig();
     console.log('Read config', this.config);
   }
@@ -27,15 +21,15 @@ export class UserConfigService {
 
   set(key, val) {
     this.config[key] = val;
-    this.fs.writeFileSync(this.configPath, JSON.stringify(this.config));
+    localStorage.setItem('config', JSON.stringify(this.config));
   }
 
   parseConfig() {
     try {
-      return JSON.parse(this.fs.readFileSync(this.configPath).toString('utf8'));
+      return JSON.parse(localStorage.getItem('config'));
     } catch (e) {
       const config = DEFAULT_CONFIG;
-      this.fs.writeFileSync(this.configPath, JSON.stringify(config));
+      localStorage.setItem('config', JSON.stringify(config));
       return config;
     }
   }
