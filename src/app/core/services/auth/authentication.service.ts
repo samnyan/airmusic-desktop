@@ -30,7 +30,7 @@ export class AuthenticationService {
     const crypto = this.e.remote.require('crypto');
     const salt = crypto.randomBytes(20).toString('hex');
     const token = crypto.createHash('md5').update(info.password + salt).digest('hex');
-    const host = info.host.trim().replace(/\/+$/, "");
+    const host = info.host.trim().replace("/\/+$/", "");
     const options = mergeOption({username: info.username, salt: salt, token: token}, null)
     return this.http.get(host + '/rest/ping', options).pipe(
       switchMap(data => {

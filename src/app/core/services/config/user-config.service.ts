@@ -6,7 +6,7 @@ import * as fs from 'fs';
 })
 export class UserConfigService {
 
-  config;
+  config: any;
   app;
   fs: typeof fs;
 
@@ -16,7 +16,11 @@ export class UserConfigService {
   }
 
   get(key) {
-    return this.config[key];
+    try {
+      return this.config[key];
+    } catch (e) {
+      return null;
+    }
   }
 
   set(key, val) {
@@ -26,6 +30,12 @@ export class UserConfigService {
 
   parseConfig() {
     try {
+      const c = localStorage.getItem('config');
+      if (c == null) {
+        const config = DEFAULT_CONFIG;
+        localStorage.setItem('config', JSON.stringify(config));
+        return config;
+      }
       return JSON.parse(localStorage.getItem('config'));
     } catch (e) {
       const config = DEFAULT_CONFIG;
