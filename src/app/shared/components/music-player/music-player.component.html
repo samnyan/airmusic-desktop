@@ -10,9 +10,15 @@
     </div>
   </div>
   <div class="controls">
+    <button mat-button (click)="playPrevious()">
+      <mat-icon>skip_previous</mat-icon>
+    </button>
     <button mat-button (click)="togglePlayPause()">
       <mat-icon *ngIf="!isPlaying">play_arrow</mat-icon>
       <mat-icon *ngIf="isPlaying">pause</mat-icon>
+    </button>
+    <button mat-button (click)="playNext()">
+      <mat-icon>skip_next</mat-icon>
     </button>
   </div>
   <div class="progress-container">

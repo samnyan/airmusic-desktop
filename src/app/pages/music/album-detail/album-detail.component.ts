@@ -3,8 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {ApiService} from '../../../core/services/api/api.service';
 import {AlbumWithSongsID3} from '../../../model/AlbumID3';
 import {HttpParams} from '@angular/common/http';
-import {MatSelectionListChange} from '@angular/material/list';
 import {MusicPlayerService} from '../../../core/services/music-player/music-player.service';
+import {Child} from '../../../model/Child';
 
 @Component({
   selector: 'app-album-detail',
@@ -36,7 +36,11 @@ export class AlbumDetailComponent implements OnInit {
     )
   }
 
-  trackSelect(event: MatSelectionListChange) {
-    this.music.replaceAndPlay(event.option.value);
+  playSingle(music: Child) {
+    this.music.replaceAndPlay([music]);
+  }
+
+  playAlbum() {
+    this.music.replaceAndPlay(this.album.song);
   }
 }

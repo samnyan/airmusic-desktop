@@ -6,6 +6,9 @@ import {MatCardModule} from '@angular/material/card';
 import {CoreModule} from '../../core/core.module';
 import {MatListModule} from '@angular/material/list';
 import {FlexModule} from '@angular/flex-layout';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import {FlexModule} from '@angular/flex-layout';
     MatCardModule,
     CoreModule,
     MatListModule,
-    FlexModule
+    FlexModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatButtonModule,
   ]
 })
 export class MusicModule {

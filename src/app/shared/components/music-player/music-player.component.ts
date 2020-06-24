@@ -24,23 +24,13 @@ export class MusicPlayerComponent implements OnInit {
   ngOnInit(): void {
     this.musicService.bindPlayer(this.player);
     this.bindEvent();
-    this.musicService.currentMusic.subscribe(music => this.currentMusic = music);
   }
 
   bindEvent() {
-    this.player.nativeElement.addEventListener('playing', () => {
-      this.isPlaying = true;
-      this.duration = Math.floor(this.player.nativeElement.duration);
-    });
-    this.player.nativeElement.addEventListener('pause', () => {
-      this.isPlaying = false;
-    });
-    this.player.nativeElement.addEventListener('ended', () => {
-      this.isPlaying = false;
-    });
-    this.player.nativeElement.addEventListener('timeupdate', () => {
-      this.currentTime = Math.floor(this.player.nativeElement.currentTime);
-    });
+    this.musicService.isPlaying.subscribe(val => this.isPlaying = val);
+    this.musicService.duration.subscribe(val => this.duration = val);
+    this.musicService.currentTime.subscribe(val => this.currentTime = val);
+    this.musicService.currentMusic.subscribe(music => this.currentMusic = music);
   }
 
 
@@ -54,5 +44,13 @@ export class MusicPlayerComponent implements OnInit {
 
   currTimePosChanged(event: any) {
     this.player.nativeElement.currentTime = event.value;
+  }
+
+  playPrevious() {
+    this.musicService.playPrevious();
+  }
+
+  playNext() {
+    this.musicService.playNext()
   }
 }

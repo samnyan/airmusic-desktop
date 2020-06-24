@@ -1,23 +1,49 @@
 <div *ngIf="album">
   <div class="album-info-container">
     <div class="album-art-card" [ngStyle]="{'background-image': 'url(' + (album.coverArt | idToCoverArt) + ')'}"></div>
-    <div class="album-info">
-      <h2>
-        {{album.name}}
-      </h2>
-      <h3>
-        {{album.artist}}
-      </h3>
+    <div class="right-container">
+      <div class="album-info">
+        <h2>
+          {{album.name}}
+        </h2>
+        <h3>
+          {{album.artist}}
+        </h3>
+      </div>
+      <div class="action-buttons">
+        <button mat-button (click)="playAlbum()">
+          <mat-icon>play_arrow</mat-icon>
+          Play all
+        </button>
+      </div>
     </div>
   </div>
   <div class="track-list">
     <mat-card-title>
-      Track List
+      <div class="title">
+        Track List
+      </div>
+      <div class="action-buttons">
+
+      </div>
     </mat-card-title>
-    <mat-selection-list [multiple]="false" (selectionChange)="trackSelect($event)">
-      <mat-list-option *ngFor="let item of album.song" [value]="item">
-        {{item.title}} {{item.duration * 1000 | date:'mm:ss'}}
-      </mat-list-option>
-    </mat-selection-list>
+    <mat-list>
+      <mat-list-item *ngFor="let item of album.song; let i = index" data-id="{{item.id}}}">
+        <div class="track-container">
+          <div class="selection">
+            <mat-checkbox data-id="{{i}}"></mat-checkbox>
+          </div>
+          <div class="play-button">
+            <mat-icon (click)="playSingle(item)">play_arrow</mat-icon>
+          </div>
+          <div class="title">
+            {{item.title}}
+          </div>
+          <div class="duration">
+            {{item.duration * 1000 | date:'mm:ss'}}
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
   </div>
 </div>
